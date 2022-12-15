@@ -1,0 +1,111 @@
+Header, main, nav, footer, figure, figcaption, aside, section, article {
+  display:block;
+}
+/* Header Controls */
+header {
+  background-color: #325ca8;
+}
+h1 {
+  font-family: Verdana, Arial, sans-serif;
+  background-image: url(../images/logo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-indent: -9999px;
+  height: 150px;
+  margin: 0px;
+}
+h2 {
+  font-family: Verdana, Arial, sans-serif;
+}
+
+/* Top Navigation Controls */
+.topnav {
+  background-color: #072966;
+  overflow: hidden;
+}
+/* Style inside the top nav bar */
+.topnav a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Content */
+body {
+  background-color: #333; 
+  color: #000;
+  font-family: Verdana, Arial, sans-serif;
+}
+#wrapper {
+  margin-left: auto;
+    margin-right: auto;
+    width:94%;
+    background-color: #8eabde;
+    min-width: 960px;
+    max-width: 2048px;
+    box-shadow: 3px 3px 3px 3px #000;
+  }
+footer {
+  background-color: #325ca8;
+  color: #FFFFFF;
+  font-size: .80em;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+main {
+  display: block;
+  padding-bottom: 139px;
+  background-color: #8eabde;
+  margin-left: 80px;
+}
+#introduction{
+  text-align: center;
+  width: 40%;
+  min-height: 250px;
+  border: 2px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: #deeaff;
+}
+#game{
+  text-align: center;
+  width: 50%;
+  min-height: 170px;
+  border: 2px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  background-color: #deeaff;
+}
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  margin-top: 60px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+
+.btn:hover {
+  border-color: black;
+}
+
+label { float: left; display: block; text-align: center; width: 120px; padding-right: 2em; }
+input, textarea { display: block; margin-bottom: 20px; } 
+input[type= "submit"]{ margin-left: 130px; }

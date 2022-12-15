@@ -1,0 +1,160 @@
+
+
+PROBLEM STATEMENT:
+  A Game to be written where a user is required to input their name and then navigate through a series
+of changing windows.  They will navigate using buttons that take them to the next screen.  The screen
+text will change after a certain number of times each screen is visited.  When a certain room is 
+visited 5 times, a new option will appear and once visited the game will be over.
+
+Nouns: screen text, buttons, user, windows
+
+Verbs: input name, changing windows, navigate using buttons, visited 5 times, changing text
+
+
+-----
+
+
+INPUTS:
+  Player name
+  button clicks
+
+PROCESSING:
+  prompt user for a name
+  count number of times each screen is visited  
+  display each screen message
+  display alternate message when screen is visited more than once
+  display final room option
+  display thank you message
+
+OUTPUTS:
+  Player Name
+  Changing window text
+
+
+-----
+
+
+SOLUTION ALGORITHM:
+
+gameRooms =
+  Each Game room contains an IF ELSE Example below.
+
+room 1: {name: "Entrance Hall", visits:0, text: Game Text 
+  Game Text + input + Game Text
+    pull room options: 
+    roomKey: "Exit", roomOptionText: Turn Back
+    roomKey: "room 2", roomOptionText: "Proceed to Next Room
+
+  GetText: function(){
+    if room visits < 2
+      return alternate text
+    }
+    else {
+      return Game Text
+END
+
+
+deleteRoomOptions
+  while roomOptionsElement.firstChild exists
+  	remove roomOptionsElement.removeChild(roomOptionsElement.firstChild)
+END
+
+
+UpdateGameElements newRoom
+  roomTextElement.textContent = newRoom.GetText from roomOptionText
+  CreateRoomOptions for newRoom
+END
+
+
+VisitRoom room
+  add 1 visit to room.visits
+  UpdateGameElements room
+END
+
+
+RoomOptionClickHandler event
+  var optionElementClicked = event.target
+  var nextRoomName = optionElementClicked.value
+  var nextRoom = gameRooms [nextRoomName]
+  VisitRoom nextRoom 
+END
+
+CreateRoomOptions room
+  deleteRoomOptions
+    for var i = 0; i < room.options.length i++
+      if(room.options[i].hasOwnProperty "isValid"
+        if (room.options[i].isValid() == false
+          continue
+END
+
+
+StartGame - run each function together to generate gameroom
+  roomElement = document.getElementById room
+  roomNameElement = document.getElementById room-name
+  roomTextElement = document.getElementById room-text
+  roomOptionsElement = document.getElementById("room-options
+    var startingRoom = gameRooms [room 1]
+  VisitRoom startingRoom
+END
+
+
+addEventListener DOMContentLoaded - StartGame, false
+
+
+-----
+
+
+VARIABLES:
+gameRooms
+roomElement
+roomNameElement
+roomTextElement
+roomOptionsElement
+optionElementClicked
+nextRoomName
+nextRoom
+
+TEST CASE 1:
+
+  INPUT VALUES: TOM, navigational clicking
+
+  EXPECTED RESULT: 
+ You hear a booming voice resonate around the room 'Hello " + TOM + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare
+room 1 -> room 2 -> room 3 -> room 2
+
+
+  ACTUAL RESULT:
+ You hear a booming voice resonate around the room 'Hello " + TOM + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare"
+room 1 -> room 2 -> room 3 -> room 2
+
+
+TEST CASE 2:
+
+  INPUT VALUES: RALPH, navigational clicking
+
+  EXPECTED RESULT:
+ You hear a booming voice resonate around the room 'Hello " + RALPH + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare"
+room 1 -> exit
+
+  ACTUAL RESULT:
+ You hear a booming voice resonate around the room 'Hello " + RALPH + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare"
+room 1 -> exit
+
+TEST CASE 3:
+
+  INPUT VALUES: FRED, navigational clicking
+
+  EXPECTED RESULT:
+ You hear a booming voice resonate around the room 'Hello " + FRED + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare"
+room 1 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> secret room
+
+  ACTUAL RESULT:
+ You hear a booming voice resonate around the room 'Hello " + FRED + ", welcome to the Infinite Ocean'.  " +
+   "In front of you is a door that has text above it that reads 'Enter if you dare"
+room 1 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> room 2 -> room 4 -> secret room
+
